@@ -13,7 +13,7 @@ export class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.onFormSubmit(this.state);
+    this.props.addContact(this.state);
     this.setState({ name: '', number: '' });
   };
   render() {
@@ -31,7 +31,7 @@ export class ContactForm extends Component {
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
               onChange={this.inputChange}
-              value={this.state.name}
+              value={name}
             />
             <p className={css.formText}>Number</p>
             <input
@@ -42,7 +42,7 @@ export class ContactForm extends Component {
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
               onChange={this.inputChange}
-              value={this.state.number}
+              value={number}
             />
             <button className={css.formButton} type="submit">
             {this.props.btnText}
